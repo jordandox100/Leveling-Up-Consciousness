@@ -1,43 +1,75 @@
-name: Build Android APK
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consciousness Journal by ONYX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      color: #f0f0f0;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    img.logo {
+      width: 150px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #00ffe0;
+      margin-bottom: 0.5rem;
+    }
+    p.tagline {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+    .features {
+      max-width: 600px;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+    .features li {
+      margin-bottom: 0.75rem;
+    }
+    a.download {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #00ffe0;
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <img src="assets/logo.png" alt="ONYX Logo" class="logo" />
+  <h1>Consciousness Journal</h1>
+  <p class="tagline">A daily practice for evolving your mind, built by ONYX.</p>
 
-on:
-  push:
-    branches:
-      - main
+  <ul class="features">
+    <li>📓 Daily & weekly guided prompts</li>
+    <li>🔐 Secure with biometrics & passcode</li>
+    <li>☁️ Cloud sync & offline support</li>
+    <li>📊 Track your growth with levels & XP</li>
+  </ul>
 
-jobs:
-  build:
-    name: Build APK
-    runs-on: ubuntu-latest
+  <a href="https://github.com/your-username/your-repo/releases/latest" class="download">⬇️ Download Latest APK</a>
 
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: 17
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-
-    - name: Install Dependencies
-      run: |
-        npm install
-        cd android
-        ./gradlew dependencies
-
-    - name: Build APK
-      run: |
-        cd android
-        ./gradlew assembleRelease
-
-    - name: Upload Release APK
-      uses: actions/upload-artifact@v3
-      with:
-        name: ConsciousnessJournal-APK
-        path: android/app/build/outputs/apk/release/app-release.apk
+  <footer>
+    Built with purpose by ONYX • Contact: <a href="mailto:onyxaiteam@gmail.com">onyxaiteam@gmail.com</a>
+  </footer>
+</body>
+</html>
